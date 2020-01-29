@@ -36,9 +36,22 @@ class PostMutation extends Mutation
                 'numeric',
                 'exists:categories,id'
             ],
+            'user_id' => [
+                'required',
+                'numeric',
+                'exists:users,id'
+            ],
             'body' => [
                 'required',
                 'max:1000'
+            ],
+            'description' => [
+                'required',
+                'max:1000'
+            ],
+            'image' => [
+                'required',
+                'max:100'
             ]
         ];
     }
@@ -59,12 +72,24 @@ class PostMutation extends Mutation
                 'name' => 'category_id',
                 'type' => Type::nonNull(Type::int())
             ],
+            'user_id' => [
+                'name' => 'user_id',
+                'type' => Type::nonNull(Type::int())
+            ],
             'title' => [
                 'name' => 'title',
                 'type' =>  Type::nonNull(Type::string())
             ],
             'body' => [
                 'name' => 'body',
+                'type' =>  Type::nonNull(Type::string())
+            ],
+            'description' => [
+                'name' => 'description',
+                'type' =>  Type::nonNull(Type::string())
+            ],
+            'image' => [
+                'name' => 'image',
                 'type' =>  Type::nonNull(Type::string())
             ]
         ];
